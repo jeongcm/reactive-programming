@@ -37,7 +37,7 @@ public class PredicateExample implements ApplicationRunner {
     private static String sum(List<String> testString, Function<String, String> fuc) {
         StringBuilder result = new StringBuilder();
 
-        result.append("제 이름은 ");
+        result.append("my name is ");
 
         testString.forEach(s -> {
             result.append(fuc.apply(s));
@@ -47,7 +47,7 @@ public class PredicateExample implements ApplicationRunner {
 
         });
 
-        result.append("입니다. 잘 부탁드립니다.");
+        result.append("Thank you.");
 
         return result.toString();
     }
