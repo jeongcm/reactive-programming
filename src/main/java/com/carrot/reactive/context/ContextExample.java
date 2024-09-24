@@ -25,10 +25,12 @@ public class ContextExample implements ApplicationRunner {
                 .publishOn(Schedulers.parallel())
                 // operator 체인에서 context 의 값을 읽어오는 방식은 transformDeferredContextual 이다.
                 .transformDeferredContextual(
-                        (Mono, ctx) -> Mono.map(data -> data + " " + ctx.get("middleName") + " " + ctx.get("lastName") + ctx.get("dog"))
+                        (Mono, ctx) -> Mono.map(data -> data + " " + ctx.get("middleName") + " " + ctx.get("lastName") +
+                                ctx.get("dog"))
                 ) // publish on scheduler  에서 실행
                 .transformDeferredContextual(
-                        (Mono, ctx) -> Mono.map(data -> data + ", dog: " + ctx.get("dog") + " name: " + ctx.getOrDefault("name", "yakkoo"))
+                        (Mono, ctx) -> Mono.map(data -> data + ", dog: " + ctx.get("dog") + " name: " +
+                                ctx.getOrDefault("name", "yakkoo"))
                 ) // publish on scheduler  에서 실행
 
                 // context.putAll 은 contextView 타입을 context에 merge
