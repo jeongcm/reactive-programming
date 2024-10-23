@@ -15,6 +15,7 @@ public class ConcatExample implements ApplicationRunner {
         // concat 예제
         Flux.concat(Flux.just("1-Circle", "3-Circle", "5-Circle"), Flux.just("7-Circle", "9-Circle"))
                 .map(circle -> circle.replace("Circle", "Rectangle"))
+                //.subscribe(log::info) method reference 를 이용해 출력도 가능
                 .subscribe(data -> log.info("# on Next: {}", data));
 
         // merge 예제 merge operator 의 경우 interleave 방식으로 병합 (교차로 배차 가능 emit 된 시간 순서대로)
