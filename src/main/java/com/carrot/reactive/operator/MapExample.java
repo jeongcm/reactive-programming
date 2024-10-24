@@ -6,10 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import reactor.core.publisher.Flux;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
+import java.time.Duration;
 
 @Slf4j
 public class MapExample implements ApplicationRunner {
@@ -26,6 +23,13 @@ public class MapExample implements ApplicationRunner {
                         .just("Morning", "afternoon", "Evening")
                         .map(time -> feeling + " " + time)
                 ).subscribe(log::info);
+
+        // zip 예제
+        Flux.zip(Flux.just(1, 2, 3).delayElements(Duration.ofMillis(300L)),
+                Flux.just(4, 5, 6).delayElements(Duration.ofMillis(500L))
+        ).subscribe(data -> log.info("# onNext: {}", data));
+
+        Thread.sleep(2500L);
     }
 
     @Override
