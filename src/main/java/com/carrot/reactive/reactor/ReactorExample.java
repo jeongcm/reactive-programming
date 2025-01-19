@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
 public class ReactorExample implements ApplicationRunner {
 
     public static void main(String[] args) {
-        Flux<String> sequence = Flux.just("HELLO", "JEONG");
+        Flux<String> sequence = Flux.just("HELLO", "JEONG CM");
         sequence.map(String::toLowerCase).subscribe(System.out::println);
     }
 
