@@ -1,4 +1,4 @@
-FROM adoptopenjdk:23-jdk-hotspot
+FROM amazoncorretto:23-alpine-jdk
 VOLUME /tmp
 ARG JAR_FILE=build/libs/root.jar
 COPY ${JAR_FILE} root.jar
