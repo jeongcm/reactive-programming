@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: carrot-reactive
+
+server:
+  port: 8080
+
+management:
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+  endpoints:
+    jmx:
+      exposure:
+        exclude: "*"
+    enabled-by-default: false
+    web:
+      base-path: /monitor
+      exposure:
+        include:
+          - "health"
