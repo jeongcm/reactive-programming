@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11-jdk-hotspot
+FROM adoptopenjdk:23-jdk-hotspot
 VOLUME /tmp
 ARG JAR_FILE=build/libs/root.jar
 COPY ${JAR_FILE} root.jar
