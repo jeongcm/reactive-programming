@@ -1,8 +1,8 @@
-name: Deploy Beanstalk
+name: Continous Deployment Workflows
 
 on:
   workflow_run:
-    workflows: ["Upload Docker Image to ECR & Pull Image to Beanstalk"]
+    workflows: ["Continous Integration Workflows"]
     branches: [main]
     types: 
       - completed
