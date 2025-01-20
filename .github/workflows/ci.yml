@@ -1,4 +1,4 @@
-name: Upload Docker Image to ECR & Pull Image to Beanstalk
+name: Continous Integration Workflows
 
 on:
   push:
